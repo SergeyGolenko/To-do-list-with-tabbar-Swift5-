@@ -9,37 +9,27 @@ import UIKit
 
 class AddItemViewController: UIViewController,UITextViewDelegate {
     
+    
     let firstController = ToDoListViewController()
     var items: [String] = []
-    
     
     
     @IBOutlet weak var addTextField: UITextField!
     
     @IBAction func addItebButton(_ sender: Any) {
-        
         let  itemsObject = UserDefaults.standard.object(forKey:firstController.key)
-       
-        
         if let tempItems = itemsObject as? [String]{
             items = tempItems
-            guard let item = addTextField.text else {return}
-            items.append(item)
+            if let item = addTextField.text{
+                items.append(item)}
         } else {
-            guard let item = addTextField.text else {return}
+            let item = addTextField.text!
             items = [item]
+            
         }
-        
-        
         UserDefaults.standard.set(items, forKey:firstController.key)
-        
         addTextField.text = ""
-                
-        
-        
         self.tabBarController?.selectedIndex = 0
-        
-        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

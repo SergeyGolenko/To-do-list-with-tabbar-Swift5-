@@ -7,24 +7,10 @@
 
 import UIKit
 
-class ToDoListViewController: UIViewController,UITableViewDelegate,UITableViewDataSource{
+class ToDoListViewController: UIViewController{
     
-    let key = "1111"
-    
-    var itemsToDo : [String] = ["bay eggs"]
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return itemsToDo.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = table.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        
-        let infoForCell = itemsToDo[indexPath.row]
-        cell.textLabel?.text = infoForCell
-        return cell
-    }
-    
+   let key = "111fgdsr465yhdh5ytyethwgdfsbw5yh41"
+   private var itemsToDo : [String] = ["bay eggs"]
     
     @IBOutlet weak var table: UITableView!
     
@@ -32,49 +18,52 @@ class ToDoListViewController: UIViewController,UITableViewDelegate,UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
         loadToDoItemsFromUserDefaults()
-
     }
     
     
+ //uodate table and itemsToDo after adding new item
     override func viewWillAppear(_ animated: Bool) {
         loadToDoItemsFromUserDefaults()
         self.table.reloadData()
         
     }
     
-     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+  // delete item from table
+ func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             itemsToDo.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             
         }
-        
-        
+        //save data after delete item in array
         UserDefaults.standard.set(itemsToDo, forKey: key)
     }
+
     
     
-    override func viewDidAppear(_ animated: Bool) {
-       
-    }
-    
-    func loadToDoItemsFromUserDefaults(){
+  //function for load data with UserDefaults
+   private func loadToDoItemsFromUserDefaults(){
         if let arrayItems =  UserDefaults.standard.object(forKey: key) as? [String]{
             itemsToDo = arrayItems
         }
         
     }
+}
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
+    extension ToDoListViewController:UITableViewDelegate,UITableViewDataSource{
+        
+    //MARK:- TableView DataSource
+    
+    internal  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+         return itemsToDo.count
+     }
+     
+     internal  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+         let cell = table.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+         let infoForCell = itemsToDo[indexPath.row]
+         cell.textLabel?.text = infoForCell
+         return cell
+     }
 }
