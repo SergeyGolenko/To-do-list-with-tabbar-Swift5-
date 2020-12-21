@@ -49,6 +49,9 @@ class ToDoListViewController: UIViewController,UITableViewDelegate,UITableViewDa
         } else if editingStyle == .insert {
             
         }
+        
+        
+        UserDefaults.standard.set(itemsToDo, forKey: key)
     }
     
     
