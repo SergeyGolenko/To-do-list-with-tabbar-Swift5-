@@ -8,6 +8,16 @@
 import UIKit
 
 class AddItemViewController: UIViewController {
+    
+    
+    @IBOutlet weak var addTextField: UITextField!
+    
+    @IBAction func addItebButton(_ sender: Any) {
+    }
+    
+    
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()

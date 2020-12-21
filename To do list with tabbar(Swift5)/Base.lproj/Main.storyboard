@@ -15,14 +15,59 @@
                     <view key="view" contentMode="scaleToFill" id="KQ2-89-Ol8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please add new task.." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CYX-mX-Hq4">
+                                <rect key="frame" x="107" y="94" width="200" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="SUx-iG-8hx"/>
+                                    <constraint firstAttribute="height" constant="50" id="iaZ-9D-Gse"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="add..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gc6-Zj-Pon">
+                                <rect key="frame" x="107" y="174" width="200" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="hpr-HE-akA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vQe-a6-aXY">
+                                <rect key="frame" x="107" y="408" width="200" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="S3x-fd-XQi"/>
+                                    <constraint firstAttribute="width" constant="200" id="z1x-cY-ZHT"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <state key="normal" title="SAVE">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="addItebButton:" destination="Sq5-7c-CNl" eventType="touchUpInside" id="kLQ-jw-HsN"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="bJA-g0-mq4"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Gc6-Zj-Pon" firstAttribute="top" secondItem="CYX-mX-Hq4" secondAttribute="bottom" constant="30" id="MUK-bE-jZO"/>
+                            <constraint firstItem="vQe-a6-aXY" firstAttribute="top" secondItem="Gc6-Zj-Pon" secondAttribute="bottom" constant="200" id="UWE-j2-6Wm"/>
+                            <constraint firstItem="Gc6-Zj-Pon" firstAttribute="centerX" secondItem="bJA-g0-mq4" secondAttribute="centerX" id="V0x-ZJ-O5K"/>
+                            <constraint firstItem="vQe-a6-aXY" firstAttribute="centerX" secondItem="bJA-g0-mq4" secondAttribute="centerX" id="WTc-4p-XU1"/>
+                            <constraint firstItem="CYX-mX-Hq4" firstAttribute="top" secondItem="bJA-g0-mq4" secondAttribute="top" constant="50" id="fta-DC-gdK"/>
+                            <constraint firstItem="CYX-mX-Hq4" firstAttribute="centerX" secondItem="bJA-g0-mq4" secondAttribute="centerX" id="hKu-IU-eAP"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Add item" id="Ucc-5E-8DA"/>
+                    <connections>
+                        <outlet property="addTextField" destination="Gc6-Zj-Pon" id="FJ9-5q-YOX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8gX-P5-xrZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="514" y="781"/>
+            <point key="canvasLocation" x="-254" y="650"/>
         </scene>
         <!--ToDo-->
         <scene sceneID="KDb-FI-7Az">
@@ -67,7 +112,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xx8-2w-aYe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="478" y="-103"/>
+            <point key="canvasLocation" x="-254" y="-53"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="lf7-zA-YAh">
