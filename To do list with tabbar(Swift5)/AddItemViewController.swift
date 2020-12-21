@@ -34,7 +34,7 @@ class AddItemViewController: UIViewController,UITextViewDelegate {
         UserDefaults.standard.set(items, forKey:firstController.key)
         
         addTextField.text = ""
-        
+                
         
         
     
@@ -42,7 +42,12 @@ class AddItemViewController: UIViewController,UITextViewDelegate {
         
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
         
+    }
+    
+    
     
     
     

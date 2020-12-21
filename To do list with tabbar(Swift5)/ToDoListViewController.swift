@@ -36,6 +36,26 @@ class ToDoListViewController: UIViewController,UITableViewDelegate,UITableViewDa
     }
     
     
+    override func viewWillAppear(_ animated: Bool) {
+        loadToDoItemsFromUserDefaults()
+        self.table.reloadData()
+        
+    }
+    
+     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            itemsToDo.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        } else if editingStyle == .insert {
+            
+        }
+    }
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+       
+    }
+    
     func loadToDoItemsFromUserDefaults(){
         if let arrayItems =  UserDefaults.standard.object(forKey: key) as? [String]{
             itemsToDo = arrayItems
